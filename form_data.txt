@@ -1,2 +1,0 @@
-First Name: John
-Last Name: Doe
