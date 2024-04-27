@@ -31,3 +31,8 @@ document.addEventListener("DOMContentLoaded", function (){
     setInterval(updateDateTime, 1000);
     updateDateTime();
 });
+
+function thankMessage() {
+    alert("Thank you for submitting the form!");
+    return true; // Allow form submission
+}
