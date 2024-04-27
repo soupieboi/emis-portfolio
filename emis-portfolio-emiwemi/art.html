@@ -1,68 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="improved.css"> <!-- This is the main css page -->
-    <link rel="stylesheet" href="art.css"> <!-- This is the page specific styling -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="art.css" />
+    <link rel="stylesheet" href="improved.css" />
+    <!-- This is the main css page -->
+    <!-- This is the page specific styling -->
     <title>Emi's Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <!-- Insert above code into all the subpage .html documents -->
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="/emis-portfolio-emiwemi/newlogo.png" alt="Logo" />
+      </div>
+      <div class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <ul class="dropdown-menu menu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="posts.html">Posts</a></li>
+        <li><a href="art.html">Art</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
 
-</head>
-<body>
-<nav>
-  <div class="logo">
-    <img src="/emis-portfolio-emiwemi/newlogo.png" alt="Logo">
-  </div>
-  <div class="burger">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
-  <ul class="dropdown-menu menu">
-    <li><a href="home.html">Home</a></li>
-    <li><a href="posts.html">Posts</a></li>
-    <li><a href="art.html">Art</a></li>
-    <li><a href="skills.html">Skills</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
+    <div class="image-gallery">
+      <div class="preview">
+        <a href="#target1"><img src="/images/emicatcomparison.jpg" alt="emicat" /></a>
+        <a href="#target2"><img src="/images/emicatcomparison.jpg" alt="emicat" /></a>
+        <a href="#target3"><img src="/images/emicatcomparison.jpg" alt="emicat" /></a>
+      </div>
 
-<div class="image-gallery">
-  <div class="image-item">
-    <a href="emicatcomparison.jpg" data-lightbox="gallery" data-title="catcompare">
-      <img src="emicatcomparison.jpg" alt="emicat">
-  </div>
-  <div class="image-item">
-    <a href="emicatcomparison.jpg" data-lightbox="gallery" data-title="catcompare">
-      <img src="emicatcomparison.jpg" alt="emicat">
-  </div>
-  <div class="image-item">
-    <a href="emicatcomparison.jpg" data-lightbox="gallery" data-title="catcompare">
-      <img src="emicatcomparison.jpg" alt="emicat">
-  </div>
-  <div class="image-item">
-    <a href="emicatcomparison.jpg" data-lightbox="gallery" data-title="catcompare">
-      <img src="emicatcomparison.jpg" alt="emicat">
-  </div>
-  <div class="image-item">
-    <a href="emicatcomparison.jpg" data-lightbox="gallery" data-title="catcompare">
-      <img src="emicatcomparison.jpg" alt="emicat">
-  </div>
-  <div class="image-item">
-    <a href="emicatcomparison.jpg" data-lightbox="gallery" data-title="catcompare">
-      <img src="emicatcomparison.jpg" alt="emicat">
-  </div>
-  <div class="image-item">
-    <a href="emicatcomparison.jpg" data-lightbox="gallery" data-title="catcompare">
-      <img src="emicatcomparison.jpg" alt="emicat">
-  </div>
-</div>
-
-  <script src="main.js"></script>
-
-  <footer>
-    <h6>Portfolio Emilia de Boer - Developer<br>Updated 26/04/2024</h6>
-</footer>
-</body>
+      <div class="lightbox">
+        <div class="target" id="target1">
+          <span><!-- SPACER --></span>
+          <div class="content">
+            <img src="/images/emicatcomparison.jpg" alt="emicat" />
+          </div>
+          <a href="#target2" class="arrow next" title="next"></a>
+        </div>
+        <div class="target" id="target2">
+          <a href="#target2" class="arrow" title="previous"></a>
+          <div class="content">
+            <img src="/images/emicatcomparison.jpg" alt="emicat" />
+          </div>
+          <a href="#target3" class="arrow next" title="next"></a>
+        </div>
+        <div class="target" id="target3">
+          <a href="#target2" class="arrow" title="previous"></a>
+          <div class="content">
+            <img src="/images/emicatcomparison.jpg" alt="emicat" />
+          </div>
+          <span><!-- SPACER --></span>
+        </div>
+        <a href="#!" class="fas fa-times close nav">awa</a>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>

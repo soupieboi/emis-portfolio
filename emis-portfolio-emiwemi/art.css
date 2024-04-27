@@ -1,79 +1,114 @@
-body {
-  background-color: #ffefef;
-  margin: 0;
-  padding: 0;
-  font-family: Helvetica, sans-serif;
-}
-body nav {
-  background-color: #d6b9b9;
-  padding: 20px;
+.image-gallery {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  position: relative;
-  z-index: 2;
+  justify-content: center;
 }
-body nav img {
-  width: 200px;
-  height: auto;
-}
-body nav .burger {
+.image-gallery .preview {
   display: flex;
-  flex-direction: column;
-  z-index: 1;
-  cursor: pointer;
+  justify-content: center;
+  flex-wrap: column;
+  width: 500px;
+  max-width: 100%;
 }
-body nav .burger .line {
-  width: 25px;
-  height: 3px;
-  background-color: #fff;
-  margin: 4px;
-  transition: all 0.3s ease;
+.image-gallery .preview > a {
+  max-width: 150px;
+  height: 150px;
+  margin: 10px;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 0 0 3px white, 0 5px 8px 3px rgba(0, 0, 0, 0.6);
 }
-body nav .burger.active .line:nth-of-type(1) {
-  transform: rotate(45deg);
-  transform-origin: top left;
-  width: 28px;
+.image-gallery .preview > a img {
+  transform: scale(1);
+  transition: transform 0.1s ease-in-out;
+  filter: grayscale(50%);
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
-body nav .burger.active .line:nth-of-type(2) {
-  height: 0;
+.image-gallery .preview > a img:hover {
+  transform: scale(1.1);
+  filter: grayscale(0%);
 }
-body nav .burger.active .line:nth-of-type(3) {
-  transform: rotate(-45deg);
-  transform-origin: bottom left;
-  width: 28px;
-  margin-bottom: 7px;
-}
-body nav .burger .menu {
-  display: none;
+.image-gallery .lightbox {
   position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  height: 100%;
+  width: 100%;
+  left: 0;
   top: 0;
-  margin: 0;
-  right: -290px;
-  width: 250px;
-  height: 100vh;
-  background-color: #d6b9b9;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  list-style: none;
-  z-index: 0;
-  transition: right 0.3s ease-in-out;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
-body nav .burger .menu.slide-in {
-  right: 0;
+.image-gallery .lightbox:has(div:target) {
+  transform: translateY(0%);
+  opacity: 1;
 }
-body nav .burger .menu.show {
-  display: flex;
-  flex-direction: column;
-}
-body nav .burger .menu li {
-  margin: 10px 0;
-}
-body nav .burger .menu li a {
-  color: #fff;     
+.image-gallery .lightbox a.nav {
   text-decoration: none;
+  color: white;
+  font-size: 40px;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.8);
+  opacity: 0.5;
+  font-weight: 200;
 }
-body nav .burger .menu li a:hover {
-  color: #5a4f4f;
-  transition: 0.3s ease;
+.image-gallery .lightbox a.nav:hover {
+  opacity: 1;
+}
+.image-gallery .lightbox .target {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  transform: scale(0);
+  align-items: center;
+  justify-content: space-between;
+}
+.image-gallery .lightbox .target *:first-child,
+.image-gallery .lightbox .target *:last-child {
+  flex: 0 0 100px;
+  text-align: center;
+}
+@media all and (max-width: 600px) {
+  .image-gallery .lightbox .target *:first-child,
+  .image-gallery .lightbox .target *:last-child {
+    flex: 0 0 50px;
+  }
+}
+.image-gallery .lightbox .target .content {
+  transform: scale(0.9);
+  opacity: 0;
+  flex: 1 1 auto;
+  align-self: center;
+  max-height: 100%;
+  min-height: 0;
+  min-width: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 0 3px white, 0 5px 8px 3px rgba(0, 0, 0, 0.6);
+  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+}
+.image-gallery .lightbox .target .content img {
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  max-height: calc(100vh - 40px);
+  display: block;
+  margin: 0;
+}
+.image-gallery .lightbox .target:target {
+  transform: scale(1);
+}
+.image-gallery .lightbox .target:target .content {
+  transform: scale(1);
+  opacity: 1;
+}
+.image-gallery .lightbox .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }/*# sourceMappingURL=art.css.map */
