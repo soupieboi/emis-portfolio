@@ -30,7 +30,7 @@
     </nav>
 
 <div style="background-color: #f3d0d7; font-family: Helvetica, sans-serif; text-align:center;">
-    <form id="myForm"><br>
+    <form id="myForm" onsubmit="return thankMessage()"><br>
         <fieldset>
             <br><legend style="font-weight:bold; font-size:20px;">Contact Form Details:</legend>
         <label for="fname">First name:</label><br>
@@ -51,16 +51,10 @@
     </div>
 
     <script src="main.js">
-    function thankMessage() {
-        var txt;
-        if (confirm("Pressed submit!")) {
-            txt = "You submitted the form!";
-        } else {
-            txt = "You pressed cancel.";
+        function thankMessage() {
+            alert("Thank you for submitting the form!");
+            return true; // Allow form submission
         }
-
-    document.getElementById("demo").innerHTML = txt;
-    }
     </script>
 </body>
 </html>
