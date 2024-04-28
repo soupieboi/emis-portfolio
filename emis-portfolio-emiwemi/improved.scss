@@ -26,6 +26,14 @@ body {
   }
 }
 
+#togglePlay, #previousTrack, #nextTrack {
+  background-color:$graypink;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: large;
+  margin: 5px;
+}
+
 nav {
   background-color: $graypink;
   padding: 20px;

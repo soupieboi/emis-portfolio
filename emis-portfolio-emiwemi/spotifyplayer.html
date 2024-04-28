@@ -27,9 +27,13 @@
     </nav>
 
     <h1>Spotify Web Playback SDK Quick Start</h1>
+    <div id="controlButtons">
     <button id="togglePlay">Pause/Play</button>
     <button id="previousTrack">Previous Track</button>
     <button id="nextTrack">Next Track</button>
+    </div>
+
+    <div id="currentlyPlaying" ></div>
 
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script src="main.js"></script>
@@ -64,14 +68,18 @@
         });
 
         player.addListener('player_state_changed', ({
-            position,
-            duration,
-            track_window: { current_track }
+            track_window: { previous_tracks, next_tracks, current_track },
+            context: { MediaMetadata }
+
         }) => {
-            console.log('Currently Playing', current_track);
-            console.log('Position in Song', position);
-            console.log('Duration of Song', duration);
-        });
+            const nextTrackName = next_tracks[0].name;
+            const currentlyPlayingDiv = document.getElementById('currentlyPlaying');
+            currentlyPlayingDiv.textContent = `Now playing: ${current_track.name} Next track: ${nextTrackName}`;
+            console.log('Currently Playing', current_track.name);
+            console.log('Next tracks', nextTrackName);
+            console.log('Previous tracks', previous_tracks);
+          });
+          
 
         //Button functions
         document.getElementById('togglePlay').onclick = function() {
