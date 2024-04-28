@@ -35,16 +35,12 @@
     <script src="main.js"></script>
     <script>
         window.onSpotifyWebPlaybackSDKReady = () => {
-        const token = 'BQDB314u8rGCFF8U5FgOw0I9wu8EoiDCHsT6-XZXMdFvB32OYZTRhHMLWGDJdJBD47KC_ogVHGnew1BtSZcz2ej4dxmrI_xRhc-XlIX8Sg1DW91jhlxSJg6-9abkf5W3tPPtfB6NpZnhaJ4BtiwxtekA5rPwdXK7WGl8oz-WGCcLFw7ZKT1vp8sshFHhg9RHuG6IJEIR-3Hwz7L6MxInMMo9Vhv-';
+        const token = 'BQBazFEsFkq2xvLqyzuf6o6uVRytqeaMkyvzy4mF5zLRYrRcad9HGsf7n6fTI-flOXMsovqfOZEXbLKplf3LitnO6nVbbVRjxoHlY1zEwIkw-GxqS_xVm_EhNND-qkoVhdq-YRCkG8p-9A7qgeZi8enAgV8znEr_ffgfCZ-2XPPxagXJm2ibZ4hVuozYYKkufcXeD8zDJC3P8orhYefhGdb5RFyr';
         const player = new Spotify.Player({
-            name: 'Web Playback SDK Quick Start Player',
+            name: 'Portfolio Emilia',
             getOAuthToken: cb => { cb(token); },
             volume: 0.5
         });
-
-        player.setName("Portfolio Spotify Tool").then(() => {
-            console.log('Player name updated!');
-          });
 
         player.addListener('ready', ({ device_id }) => {
             console.log('Ready with Device ID', device_id);
@@ -56,15 +52,25 @@
         });
     
         player.addListener('initialization_error', ({ message }) => {
-            console.error(message);
+            console.error('Failed to Initialize', message);
         });
     
         player.addListener('authentication_error', ({ message }) => {
-            console.error(message);
+            console.error('Failed to authenticate', message);
         });
     
         player.addListener('account_error', ({ message }) => {
-            console.error(message);
+            console.error('Failed to validate Spotify account', message);
+        });
+
+        player.addListener('player_state_changed', ({
+            position,
+            duration,
+            track_window: { current_track }
+        }) => {
+            console.log('Currently Playing', current_track);
+            console.log('Position in Song', position);
+            console.log('Duration of Song', duration);
         });
 
         //Button functions
