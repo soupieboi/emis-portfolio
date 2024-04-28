@@ -15,7 +15,7 @@ $darkbrown: #5a4f4f; // Text colour
     justify-content: center;
     flex-wrap: column;
     width: 500px;
-    max-width: 100%;
+    max-width: 500px;
     > a {
       max-width: 150px;
       height: 150px;
@@ -28,10 +28,10 @@ $darkbrown: #5a4f4f; // Text colour
         transform: scale(1);
         transition: transform 0.1s ease-in-out;
         filter: grayscale(50%);
-        min-width: 100%;
-        min-height: 100%;
-        max-width: 100%;
-        max-height: 100%;
+        min-width: fit-content;
+        min-height: fit-content;
+        max-width: fit-content;
+        max-height: fit-content;
 
         &:hover {
           transform: scale(1.1);
@@ -88,20 +88,20 @@ $darkbrown: #5a4f4f; // Text colour
         transform: scale(0.9);
         opacity: 0;
         flex: 1 1 auto;
+        min-width: fit-content;
+        min-height: fit-content;
+        max-width: fit-content;
+        max-height: fit-content;
         align-self: center;
-        max-height: 100%;
-        min-height: 0;
-        // max-width:calc(100% - 200px);
-        min-width: 0;
         border-radius: 5px;
         overflow: hidden;
         box-shadow: 0 0 0 3px white, 0 5px 8px 3px rgba(black, 0.6);
         transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
         img {
-          min-width: 100%;
-          min-height: 100%;
-          max-width: 100%;
-          max-height: calc(100vh - 40px);
+          min-width: fit-content;
+          min-height: fit-content;
+          max-width: fit-content;
+          max-height: fit-content;
           display: block;
           margin: 0;
         }

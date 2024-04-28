@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="improved.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <title>Emi's Portfolio</title>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="newlogo.png" alt="Logo">
+        </div>
+        <div class="burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <ul class="dropdown-menu menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="art.html">Art</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="spotifyplayer.html">Spotify</a></li>
+        </ul>
+    </nav>
+
+    <h1>Spotify Web Playback SDK Quick Start</h1>
+    <button id="togglePlay">Pause/Play</button>
+    <button id="previousTrack">Previous Track</button>
+    <button id="nextTrack">Next Track</button>
+
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script src="main.js"></script>
+    <script>
+        window.onSpotifyWebPlaybackSDKReady = () => {
+        const token = 'BQDB314u8rGCFF8U5FgOw0I9wu8EoiDCHsT6-XZXMdFvB32OYZTRhHMLWGDJdJBD47KC_ogVHGnew1BtSZcz2ej4dxmrI_xRhc-XlIX8Sg1DW91jhlxSJg6-9abkf5W3tPPtfB6NpZnhaJ4BtiwxtekA5rPwdXK7WGl8oz-WGCcLFw7ZKT1vp8sshFHhg9RHuG6IJEIR-3Hwz7L6MxInMMo9Vhv-';
+        const player = new Spotify.Player({
+            name: 'Web Playback SDK Quick Start Player',
+            getOAuthToken: cb => { cb(token); },
+            volume: 0.5
+        });
+
+        player.setName("Portfolio Spotify Tool").then(() => {
+            console.log('Player name updated!');
+          });
+
+        player.addListener('ready', ({ device_id }) => {
+            console.log('Ready with Device ID', device_id);
+        });
+    
+        // Not Ready
+        player.addListener('not_ready', ({ device_id }) => {
+            console.log('Device ID has gone offline', device_id);
+        });
+    
+        player.addListener('initialization_error', ({ message }) => {
+            console.error(message);
+        });
+    
+        player.addListener('authentication_error', ({ message }) => {
+            console.error(message);
+        });
+    
+        player.addListener('account_error', ({ message }) => {
+            console.error(message);
+        });
+
+        //Button functions
+        document.getElementById('togglePlay').onclick = function() {
+            player.togglePlay();
+        };
+        document.getElementById('previousTrack').onclick = function() {
+            player.previousTrack();
+        }
+        document.getElementById('nextTrack').onclick = function() {
+            player.nextTrack();
+        }
+    
+        player.connect()
+
+    }
+    </script>
+</body>
+</html>

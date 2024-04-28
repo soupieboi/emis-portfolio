@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", function (){
     const burger = document.querySelector(".burger");
     const menu = document.querySelector(".dropdown-menu");
 
+// Spotify web playback SDK quickstart
+
+
 // Mount an EventListener to the DOM that waits for a click on the burger
     burger.addEventListener("click", () => {
         // Toggle the class on the burger element on a click Event
@@ -23,13 +26,14 @@ document.addEventListener("DOMContentLoaded", function (){
         };
     });
     
-    function updateDateTime() {
-        var now = new Date();
-        var dateTimeString = now.toLocaleString();
-        document.getElementById('datetime').innerHTML = dateTimeString;
-    }
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
+function updateDateTime() {
+    var now = new Date();
+    var dateTimeString = now.toLocaleString();
+    document.getElementById('datetime').innerHTML = dateTimeString;
+}
+setInterval(updateDateTime, 1000);
+updateDateTime();
+
 });
 
 function thankMessage() {
