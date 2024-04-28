@@ -40,12 +40,14 @@
     <script src="main.js"></script>
     <script>
         window.onSpotifyWebPlaybackSDKReady = () => {
-        const token = 'BQCmSPlqaBObtCRZ9psD9A-GYcbxw-yJjrPBFv3TViQyCPmrPdlrITqJ4Y9Wdmx4BtuhnV2yM6hQf8bm0-r_dTOuL76xIX-dJN3fNADOt5MRvbSaqcR_aTjSp9oQ_23juqey0Ab5MUyZ-ETN80NtCTEhYKASx7RpyjYQSXvLf0dhmj40nJ6hlY6W6ItnDuQ3Kp9JAQy77czaEvzsyMy2QUAAK3Q9';
+        const token = 'BQCttXLxgDMMfWkOjSUZsrra4hR7sS72R0fzuZehnn22aQvk8bFBE7Ff29oeRkM8Kspno_v1a87rqDZCARcAWMGRu8dhofb_ezwPgemsEi5KIxlMxXS4Jex1YGr6ySwx1UvoD70vur1CIM9J10gEz92p04KCaNbTXVCNsDoLctIV-J2YYYZf3cqEzg3TVQJP2zcJEIJ8qxcoUXNeJlR-Ni5cMh5z';
         const player = new Spotify.Player({
             name: 'Portfolio Emilia',
             getOAuthToken: cb => { cb(token); },
             volume: 0.5
         });
+
+        
 
         player.addListener('ready', ({ device_id }) => {
             console.log('Ready with Device ID', device_id);
